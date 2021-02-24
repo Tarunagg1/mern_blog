@@ -1,0 +1,20 @@
+.bgimage{
+    width: 100%;
+    height: calc(100vh - 8rem);
+    background: url('/images/bg.jpg');
+    background-size: cover;
+    @include responsive(mobile){
+        width: 0;
+        height: 0;
+    }
+}
+.bgimage1{
+    width: 100%;
+    height: calc(100vh - 8rem);
+    background: url('/images/bg1.jpg');
+    background-size: cover;
+    @include responsive(mobile){
+        width: 0;
+        height: 0;
+    }
+}
