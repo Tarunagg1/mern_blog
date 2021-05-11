@@ -17,6 +17,15 @@
 .mt-80{
     margin-top: 8rem;
 }
+.mt-100{
+    margin-top: 10rem;
+}
+.p-15{
+    padding: 1.5rem;
+}
+.ml-minus-15{
+    margin-left: -15px;
+}
 .group{
     margin-bottom: 1.3rem;
     &__control{
@@ -54,4 +63,65 @@
         background-color: $lightgray;
         color: black;
     }
+}
+
+.form-heading{
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.card{
+    background: white;
+    padding: 1.5rem;
+
+    &__h3{
+        font-size: 1.6rem;
+        font-weight: 400;
+        margin-bottom: 2rem;
+    }
+}
+#image{
+    display: none;
+}
+.image__label{
+    display: block;
+    width: 100%;
+    padding: 1.5rem;
+    background: $green;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+}
+label{
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: .8rem;
+}
+#createpost{
+    background: #b2bec3;
+    border: none;
+}
+#createpost:focus{
+    border: none;
+}
+.imgpreView{
+    width: 100%;
+    height: auto;
+    img{
+        width: 100%;
+        height: auto;
+    }
+}
+.length{
+    margin: 5px;
+    font-size: 1.8rem;
+}
+a{
+    text-decoration: none;
+    color: $black;
+}
+.icon{
+    font-size: 2rem;
+    margin-left: 1rem;
+    cursor: pointer;
 }

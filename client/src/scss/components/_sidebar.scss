@@ -1,0 +1,31 @@
+.sidebar{
+    margin-top: 2rem;
+    &__element:first-child{
+        border-top: 1px solid $silverlight !important;
+        border-top-left-radius: .6rem;
+        border-top-right-radius: .6rem;
+    }
+    &__element:last-child{
+        border-top: 1px solid $silverlight !important;
+        border-bottom-left-radius: .6rem;
+        border-bottom-right-radius: .6rem;
+    }
+    &__element{
+        padding: 1.5rem;
+         background: $silverlight;
+         cursor: pointer;
+         border-top: none;
+         border-bottom: 1px solid black;
+         a{
+             color: black;
+             font-size: 1.4rem;
+         }
+         h3{
+             font-size: 1.6rem;
+             font-weight: 400;
+         }
+    }
+    &__element:hover{
+        background: $silver;
+    }
+}

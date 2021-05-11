@@ -4,6 +4,7 @@ export const REGISTER_ERRORS = 'REGISTER_ERRORS';
 export const SET_TOKEN = 'SET_TOKEN';
 export const LOG_OUT = 'LOG_OUT';
 export const LOGIN_ERRORS = 'LOGIN_ERRORS';
+export const SET_USER = 'SET_USER';
 
 
 

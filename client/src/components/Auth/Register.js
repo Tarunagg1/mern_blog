@@ -12,7 +12,7 @@ export default function Register(props) {
         'cpassword':''
     })
     
-    const {registerErrors,loading,user} = useSelector(state => state.AuthReducer);
+    const {loading,registerErrors,user} = useSelector((state)=> state.AuthReducer);
 
     const dispatch = useDispatch();
 
@@ -26,8 +26,7 @@ export default function Register(props) {
     }
     
     useEffect(() =>{
-        let c = registerErrors.length;
-        if(c > 0){
+        if(registerErrors.length > 0){
             registerErrors.map(err =>{
                 toast.error(err.msg)
             })

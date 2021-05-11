@@ -38,7 +38,7 @@ export default function Navbar() {
                 <div className="navbar__row">
                     <div className="navbar__left">
                         <Link to='/'>
-                            <img className="logo" src="/images/logo.png" alt="not found" srcset=""/>
+                            <img className="logo" src="/images/logo.png" alt="not found" srcSet=""/>
                         </Link>
                     </div>
                     {Links}

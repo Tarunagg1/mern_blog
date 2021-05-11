@@ -1,23 +1,26 @@
 /////////// import scss mixin
 @import "scss/abstract/mixin";
 
-@import "scss/base/reset";
-
 ///////////// import abstract
 @import "scss/abstract/variables";
 @import "scss/abstract/extends";
 
+/////////////////////// reset
+@import "scss/base/reset";
 
 /////////////// import uutils
 @import "scss/utils/utils";
-
 
 /////////// import scss components
 @import "scss/components/navbar";
 @import "scss/components/bgclass";
 @import "scss/components/account";
-@import "scss/components/notfound.scss";
-
+@import "scss/components/notfound";
+@import "scss/components/dashboard";
+@import "scss/components/loader";
+@import "scss/components/sidebar";
+@import "scss/components/pagination";
+@import "scss/components/home";
 
 /////////// import scss layout
 @import "scss/layout/grid";

@@ -1,0 +1,37 @@
+.dashboard__posts:first-child {
+  border-top: 1px solid $silverlight !important;
+  border-top-left-radius: 0.6rem;
+  border-top-right-radius: 0.6rem;
+}
+.dashboard__posts:last-child {
+  border-top-left-radius: 0.6rem;
+  border-top-right-radius: 0.6rem;
+}
+.dashboard__posts {
+  background: $white;
+  padding: 2rem 1.2rem;
+  border: 1px solid $silverlight;
+  border-top: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__title {
+    width: 70%;
+    a {
+      text-decoration: none;
+      font-size: 1.6rem;
+      color: $black;
+    }
+    span {
+      display: block;
+      font-size: 1.3rem;
+      color: $black;
+      margin-top: 1rem;
+      font-weight: 300;
+    }
+  }
+  &__links {
+    width: 30%;
+    text-align: right;
+  }
+}
