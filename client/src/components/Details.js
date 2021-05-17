@@ -7,12 +7,13 @@ import { postComment, postDetails } from '../store/actionMethods/PostMethods';
 import Loder from './Loder';
 import moment from 'moment';
 import { htmlToText } from 'html-to-text';
+import Comments from './Comments';
 
 
 const Details = () => {
     
     const { id } = useParams();
-    const { loading, details } = useSelector(state => state.PostReducer);
+    const { loading, details ,details_comments} = useSelector(state => state.PostReducer);
     const { user } = useSelector(state => state.AuthReducer);
 
     const [Comment, setComment] = useState()
@@ -25,8 +26,9 @@ const Details = () => {
     const handelComment = (e)=>{
         e.preventDefault();
         // alert(comment)
-        dispatch(postComment({id,comment:Comment,username:user.name}));
+        dispatch(postComment({id:details._id,comment:Comment,username:user.name}));
         setComment('');
+        dispatch(postDetails(id));
     }
 
     return (
@@ -63,15 +65,18 @@ const Details = () => {
                                             </div>
                                             {
                                                 user ? (
+                                                    <>
                                                     <form className="mt-5" onSubmit={handelComment}>
                                                         <input type="text" className="group__control" value={Comment} onChange={(e) => setComment(e.target.value)} placeholder="write a comment....." />
                                                         <div className="group mt-5">
                                                             <input type="submit" value="Post Comment" className="btn btn-default" />
                                                         </div>
                                                     </form>
+                                                    </>
                                                 ) : <h2>Login For Comment</h2>
                                             }
                                         </div>
+                                        <Comments comment={details_comments}/>
                                     </div>
                                 </div>
 

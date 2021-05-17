@@ -1,4 +1,4 @@
-import { SET_LOADER, CLOSE_LOADER, CREATE_ERRORS, REDIRECT_TRUE, SET_MESSAGE, REMOVE_ERRORS, SET_POSTS, SET_POST, POST_REQUEST, SET_UPDATE_ERR, UPDATE_IMG_ERRORS, SET_DETAILS } from '../types/Posttype';
+import { SET_LOADER, CLOSE_LOADER, CREATE_ERRORS, REDIRECT_TRUE, SET_MESSAGE, REMOVE_ERRORS, SET_POSTS, SET_POST, POST_REQUEST, SET_UPDATE_ERR, UPDATE_IMG_ERRORS, SET_DETAILS, SET_COMMENTS } from '../types/Posttype';
 import { API_URL } from '../../config/Env';
 import axios from 'axios';
 
@@ -131,9 +131,11 @@ export const postDetails = (id)=>{
     return async (dispatch)=>{
         dispatch({ type: SET_LOADER })
         try {
-            const {data:{post}} =  await axios.get(`/details/${id}`);
+            const {data:{post,comments}} =  await axios.get(`/details/${id}`);
             dispatch({ type: CLOSE_LOADER })
+            dispatch({type:SET_COMMENTS,payload:comments})
             dispatch({type:SET_DETAILS,payload:post})
+
         } catch (error) {
             dispatch({ type: CLOSE_LOADER })
             console.log(error);
@@ -141,24 +143,22 @@ export const postDetails = (id)=>{
     }
 }
 
-export const postComment = async (commentdata)=>{
+export const postComment = (commentdata)=>{
     return async (dispatch,getState)=>{
-        console.log('mkjnh');
-        console.log(commentdata);
-        // const { AuthReducer: { token } } = getState();
-        // const config = {
-        //     headers: {
-        //         Authorization: `Bearer ${token}`
-        //     },
-        // }
-        // dispatch({ type: SET_LOADER })
-        // try {
-        //     const {data} =  await axios.get(`/comment`,commentdata,config);
-        //     dispatch({ type: CLOSE_LOADER })
-        //     console.log(data);
-        // } catch (error) {
-        //     dispatch({ type: CLOSE_LOADER })
-        //     console.log(error);
-        // }
+        const { AuthReducer: { token } } = getState();
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+        }
+        dispatch({ type: SET_LOADER })
+        try {
+            const {data} =  await axios.post(`/comment`,commentdata,config);
+            dispatch({ type: CLOSE_LOADER })
+            console.log(data);
+        } catch (error) {
+            dispatch({ type: CLOSE_LOADER })
+            console.log(error);
+        }
     }   
 }

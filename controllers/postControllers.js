@@ -202,7 +202,8 @@ module.exports.postdetails = async (req,res)=>{
     const id = req.params.id;
     try {
         const post = await postmodel.findOne({slug:id});
-        return res.status(200).json({post});
+        const comments = await commentsModel.find({postId:post._id}).sort({updatedAt:-1});
+        return res.status(200).json({post,comments});
     } catch (error) {
         return res.status(500).json({ errors: error, msg: error.message });
     }   
@@ -217,10 +218,10 @@ module.exports.postComment = async (req,res)=>{
             comment:comment,
             userName:username
         });
-        
         await newComment.save();
         return res.status(200).json({msg:"Your comment is post"})
     } catch (error) {
         return res.status(500).json({ errors: error, msg: error.message });
     }
 }
+
